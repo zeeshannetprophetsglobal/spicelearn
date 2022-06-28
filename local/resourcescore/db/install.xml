@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/resourcescore/db" VERSION="20140120" COMMENT="XMLDB file for Moodle local/resourcescore"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="local_resourcescore" COMMENT="Recourse Score ">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true"  COMMENTS="1=URL,2=PAGE,3=PDF,4=VIDEO,5=AUDIO"/>             
+        <FIELD NAME="url" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="page" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="pdf" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" />
+         <FIELD NAME="video" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" />
+        <FIELD NAME="audio" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" />
+     </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+     
+  </TABLES>
+</XMLDB>

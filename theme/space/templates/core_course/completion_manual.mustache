@@ -1,0 +1,73 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core_course/completion_manual
+
+    Template for displaying the manual completion button.
+
+    Example context (json):
+    {
+        "cmid": 0,
+        "overallcomplete": true,
+        "overallincomplete": false
+    }
+}}
+<div class="completion-info-manual">
+{{#istrackeduser}}
+    {{#overallcomplete}}
+        <button class="btn--activity-manual" data-action="toggle-manual-completion" data-toggletype="manual:undo" data-cmid="{{cmid}}" data-activityname="{{activityname}}" data-withavailability="{{withavailability}}" {{!
+        }}{{#accessibledescription}}{{!
+            }}title="{{.}}" {{!
+            }}aria-label="{{.}}" {{!
+        }}{{/accessibledescription}}{{!
+        }}{{^accessibledescription}}{{!
+            }}title="{{#str}}completion_manual:aria:done, course, {{activityname}} {{/str}}" {{!
+            }}aria-label="{{#str}}completion_manual:aria:done, course, {{activityname}} {{/str}}" {{!
+        }}{{/accessibledescription}}
+        title="{{#str}} completion_manual:done, core_course {{/str}}"
+        >
+            <svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="m20 0c11.045695 0 20 8.954305 20 20 0 11.045695-8.954305 20-20 20-11.045695 0-20-8.954305-20-20 0-11.045695 8.954305-20 20-20z" fill="#d6f6d9"/><path d="m16.9179863 26.7381538-5.6628273-5.6628272c-.340212-.3402121-.340212-.8918273 0-1.2320733l1.2320393-1.2320733c.340212-.3402461.8918613-.3402461 1.2320733 0l3.8147513 3.8147173 8.1707723-8.1707383c.340212-.340212.8918612-.340212 1.2320733 0l1.2320392 1.2320733c.3402121.3402121.3402121.8918273 0 1.2320733l-10.0188481 10.0188822c-.3402461.3402121-.8918613.3402121-1.2320733-.000034z" fill="#4fc976" fill-rule="nonzero"/></g></svg>
+        </button>
+    {{/overallcomplete}}
+    {{#overallincomplete}}
+        <button class="btn--activity-manual" data-action="toggle-manual-completion" data-toggletype="manual:mark-done" data-cmid="{{cmid}}" data-activityname="{{activityname}}" data-withavailability="{{withavailability}}" {{!
+        }}{{#accessibledescription}}{{!
+            }}title="{{.}}" {{!
+            }}aria-label="{{.}}" {{!
+        }}{{/accessibledescription}}{{!
+        }}{{^accessibledescription}}{{!
+            }}title="{{#str}}completion_manual:aria:markdone, course, {{activityname}} {{/str}}" {{!
+            }}aria-label="{{#str}}completion_manual:aria:markdone, course, {{activityname}} {{/str}}" {{!
+        }}{{/accessibledescription}}
+        title="{{#str}} completion_manual:markdone, core_course {{/str}}"
+        >
+            <svg height="42" viewBox="0 0 42 42" width="42" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="40" rx="20" stroke="#e4e8f0" stroke-width="2" width="40" x="1" y="1"/></svg>
+        </button>
+    {{/overallincomplete}}
+{{/istrackeduser}}
+{{^istrackeduser}}
+        <button class="btn--activity-manual btn--disabled" disabled title="{{#str}} completion_manual:markdone, core_course {{/str}}">
+            <svg height="42" viewBox="0 0 42 42" width="42" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="40" rx="20" stroke="#e4e8f0" stroke-width="2" width="40" x="1" y="1"/></svg>
+        </button>
+{{/istrackeduser}}
+</div>
+
+{{#js}}
+require(['core_course/manual_completion_toggle'], toggle => {
+    toggle.init()
+});
+{{/js}}

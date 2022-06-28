@@ -1,0 +1,164 @@
+<?php
+
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Web service local plugin template external functions and service definitions.
+ *
+ * @package    localapi
+ * @copyright  Ayush Gaur
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+// We defined the web service functions to install.
+$functions = array(
+        'local_api_test' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'test',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return Hello World FIRSTNAME. Can change the text (Hello World) sending a new text as parameter',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+        'local_api_category_detail' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'category_detail',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return category id, name , image , enroll course count',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+        'local_api_my_course_detail' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'my_course_detail',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return course id, fullname ,shortname,visible,shortid,lastaccess,courseprogress image ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		 'local_api_course_content' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'course_content',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return course id, fullname ,shortname,visible,shortid,lastaccess,courseprogress image ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		 'local_api_search_mycourse' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'search_mycourse',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return course id, fullname ,shortname,visible,shortid,lastaccess,courseprogress image ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		 'local_api_mycourse_by_categoryid' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'mycourse_by_categoryid',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return course id, fullname ,shortname,visible,shortid,lastaccess,courseprogress image ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		'local_api_mycourses_status_data' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'mycourses_status_data',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return course id, fullname ,shortname,visible,shortid,lastaccess,courseprogress image ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		'local_api_get_favourit_data_course' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'get_favourit_course_data',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return course id, fullname ,shortname,visible,shortid,lastaccess,courseprogress image ',
+                'type'        => 'read',
+				'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		 'local_api_get_scorms_by_courses' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'get_scorms_by_courses',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return course id, fullname ,shortname,visible,shortid,lastaccess,courseprogress image ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		  'local_api_set_fav_courses' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'set_fav_courses',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return statust code, msg ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		'local_api_course_completion ' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'course_completion',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return course id, fullname ,shortname,visible,shortid,lastaccess,courseprogress image ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		'local_api_activity_completion_status_manually ' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'activity_completion_status_manually',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return course id, fullname ,shortname,visible,shortid,lastaccess,courseprogress image ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		 'local_api_leaderboard' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'leaderboard',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return Leaderboard data ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		   'local_api_leaderboard_by_category' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'leaderboard_by_category',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return Leaderboard data ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+		
+		 'local_api_profile' => array(
+                'classname'   => 'local_api_external',
+                'methodname'  => 'profile',
+                'classpath'   => 'local/api/externallib.php',
+                'description' => 'Return Leaderboard data ',
+                'type'        => 'read',
+		'ajax'          => true,
+                'services' => array(MOODLE_OFFICIAL_MOBILE_SERVICE),
+        ),
+
+
+);
